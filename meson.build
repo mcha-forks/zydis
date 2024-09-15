@@ -61,7 +61,7 @@ tools = tools.disable_if(nolibc)
 
 examples = examples.disable_auto_if(not root).enable_auto_if(root)
 tools = tools.disable_auto_if(not root).enable_auto_if(root)
-tests = tests.disable_auto_if(not root).enable_auto_if(root)
+tests = tests.disable_auto_if(not root)
 man = man.disable_auto_if(not root)
 doc = doc.disable_auto_if(not root)
 
@@ -250,6 +250,7 @@ meson.override_dependency('zydis', zydis_dep)
 
 subdir('examples')
 subdir('tools')
+subdir('tests')
 
 doxygen_exe = find_program('doxygen', required: doc)
 doc_req = doxygen_exe.found()
